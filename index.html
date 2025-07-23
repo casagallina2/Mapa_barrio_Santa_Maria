@@ -25,6 +25,14 @@
         <title>Negocios familiares y oficios en el barrio de Santa Maria la Ribera</title>
     </head>
     <body>
+ <script>
+    var password = prompt("Ingresa la contraseña:");
+    if (password !== "sabino190") {
+      document.body.innerHTML = "<h1>Acceso denegado</h1>";
+      throw new Error("Acceso bloqueado");
+    }
+  </script>
+
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
