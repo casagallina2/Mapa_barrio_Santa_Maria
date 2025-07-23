@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
     <head>
- <script>
-    var password = prompt("Ingresa la contraseña:");
-    if (password !== "sabino190") {
-      document.body.innerHTML = "<h1>Acceso denegado</h1>";
-      throw new Error("Acceso bloqueado");
-    }
-  </script>
-
+<script>
+  var password = prompt("Ingresa la contraseña:");
+  if (password !== "sabino190") {
+    document.documentElement.innerHTML = "<h1 style='text-align:center;margin-top:20%'>Acceso denegado</h1>";
+    throw new Error("Acceso bloqueado");
+  }
+</script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
