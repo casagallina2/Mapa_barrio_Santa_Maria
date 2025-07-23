@@ -25,6 +25,7 @@
         <title>Negocios familiares y oficios en el barrio de Santa Maria la Ribera</title>
     </head>
     <body>
+    <body>
  <script>
     var password = prompt("Ingresa la contraseña:");
     if (password !== "sabino190") {
@@ -70,7 +71,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[19.45319050008381,-99.16433670504203],[19.456093838571768,-99.15822189399906]]);
+        }).fitBounds([[19.44830562394302,-99.1696793680328],[19.45624978618573,-99.15294816593514]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -102,7 +103,7 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
-        var title = new L.Control({'position':'bottomright'});
+        var title = new L.Control({'position':'topleft'});
         title.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info');
             this.update();
