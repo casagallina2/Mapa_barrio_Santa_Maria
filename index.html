@@ -1,82 +1,82 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <title>Negocios familiares y oficios en el barrio de Santa Maria la Ribera</title>
-        <style>
-            /* Hide map by default */
-            #map { display: none; }
-            /* Style for access denied message */
-            .access-denied {
-                text-align: center;
-                font-family: Arial, sans-serif;
-                padding: 20px;
-                color: #d9534f;
-            }
-        </style>
-        <!-- PASSWORD CHECK (NOW AT THE TOP!) -->
-        <script>
-            var password = prompt("Ingresa la contraseña:");
-            if (password !== "sabino190") {
-                // CLEAR ENTIRE PAGE
-                document.write(`
-                    <!doctype html>
-                    <html>
-                        <head><title>Acceso denegado</title></head>
-                        <body>
-                            <div class="access-denied">
-                                <h1>Acceso denegado</h1>
-                                <p>No tienes permiso para ver este mapa.</p>
-                            </div>
-                        </body>
-                    </html>
-                `);
-                // STOP ALL FURTHER EXECUTION
-                throw new Error("Acceso bloqueado");
-            }
-        </script>
-        <!-- Only load these if password is correct -->
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/MarkerCluster.css">
-        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
-        <link rel="stylesheet" href="css/leaflet.photon.css">
-        <style>
-            html, body, #map {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            /* Show map only after password check */
-            #map { display: block !important; }
-        </style>
-    </head>
-    <body>
-        <div id="map"></div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/L.Control.Layers.Tree.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet.photon.js"></script>
-        <script src="js/leaflet.markercluster.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="data/oficios_barrio_verde_1.js"></script>
-        <script src="data/oficios_amarillo_2.js"></script>
-        <script src="data/oficios_rojo_3.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Acceso al mapa</title>
+    <!-- BLOQUEO CONFIRMADO (FUNCIONA EN GITHUB PAGES) -->
+    <script>
+        // 1. PEDIR CONTRASEÑA INMEDIATAMENTE
+        var password = prompt("Ingresa la contraseña:");
+        
+        // 2. SI ES INCORRECTA:
+        if (password !== "sabino190") {
+            // BORRAR TODO EL HTML Y MOSTRAR SOLO ESTO
+            document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Acceso denegado</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            padding: 50px;
+                            background: #f8f9fa;
+                        }
+                        h1 { color: #dc3545; }
+                    </style>
+                </head>
+                <body>
+                    <h1>🔐 Acceso denegado</h1>
+                    <p><i>Contraseña incorrecta. No puedes acceder al mapa.</i></p>
+                </body>
+                </html>
+            `);
+            // DETENER TODA CARGA DE ARCHIVOS
+            window.stop();
+        }
+    </script>
+    <!-- 3. SI LA CONTRASEÑA ES CORRECTA, CARGAR EL MAPA NORMAL -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+    <link rel="stylesheet" href="css/qgis2web.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/MarkerCluster.css">
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="css/leaflet-search.css">
+    <link rel="stylesheet" href="css/leaflet.photon.css">
+    <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <title>Negocios familiares y oficios en el barrio de Santa Maria la Ribera</title>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/L.Control.Layers.Tree.min.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet.pattern.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/rbush.min.js"></script>
+    <script src="js/labelgun.min.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="js/leaflet.photon.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="js/leaflet-search.js"></script>
+    <script src="data/oficios_barrio_verde_1.js"></script>
+    <script src="data/oficios_amarillo_2.js"></script>
+    <script src="data/oficios_rojo_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
