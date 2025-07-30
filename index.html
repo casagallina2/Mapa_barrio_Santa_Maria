@@ -59,24 +59,24 @@
     </style>
     <title>Negocios familiares y oficios en el barrio de Santa Maria la Ribera</title>
 </head>
-<body>
-    <div id="map"></div>
-    <script src="js/qgis2web_expressions.js"></script>
-    <script src="js/leaflet.js"></script>
-    <script src="js/L.Control.Layers.Tree.min.js"></script>
-    <script src="js/leaflet.rotatedMarker.js"></script>
-    <script src="js/leaflet.pattern.js"></script>
-    <script src="js/leaflet-hash.js"></script>
-    <script src="js/Autolinker.min.js"></script>
-    <script src="js/rbush.min.js"></script>
-    <script src="js/labelgun.min.js"></script>
-    <script src="js/labels.js"></script>
-    <script src="js/leaflet.photon.js"></script>
-    <script src="js/leaflet.markercluster.js"></script>
-    <script src="js/leaflet-search.js"></script>
-    <script src="data/oficios_barrio_verde_1.js"></script>
-    <script src="data/oficios_amarillo_2.js"></script>
-    <script src="data/oficios_rojo_3.js"></script>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.photon.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/Negociosverde_1.js"></script>
+        <script src="data/Negociosamarillo_2.js"></script>
+        <script src="data/Negociosrojo_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -96,7 +96,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[19.44830562394302,-99.1696793680328],[19.45624978618573,-99.15294816593514]]);
+        }).fitBounds([[19.449175931082546,-99.15876525149189],[19.45270669894416,-99.151329161671]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -128,7 +128,7 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
-        var title = new L.Control({'position':'topleft'});
+        var title = new L.Control({'position':'bottomright'});
         title.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info');
             this.update();
@@ -157,7 +157,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_oficios_barrio_verde_1(feature, layer) {
+        function pop_Negociosverde_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -212,9 +212,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_oficios_barrio_verde_1_0() {
+        function style_Negociosverde_1_0() {
             return {
-                pane: 'pane_oficios_barrio_verde_1',
+                pane: 'pane_Negociosverde_1',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(61,128,53,1.0)',
@@ -228,31 +228,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_oficios_barrio_verde_1');
-        map.getPane('pane_oficios_barrio_verde_1').style.zIndex = 401;
-        map.getPane('pane_oficios_barrio_verde_1').style['mix-blend-mode'] = 'normal';
-        var layer_oficios_barrio_verde_1 = new L.geoJson(json_oficios_barrio_verde_1, {
+        map.createPane('pane_Negociosverde_1');
+        map.getPane('pane_Negociosverde_1').style.zIndex = 401;
+        map.getPane('pane_Negociosverde_1').style['mix-blend-mode'] = 'normal';
+        var layer_Negociosverde_1 = new L.geoJson(json_Negociosverde_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_oficios_barrio_verde_1',
-            layerName: 'layer_oficios_barrio_verde_1',
-            pane: 'pane_oficios_barrio_verde_1',
-            onEachFeature: pop_oficios_barrio_verde_1,
+            dataVar: 'json_Negociosverde_1',
+            layerName: 'layer_Negociosverde_1',
+            pane: 'pane_Negociosverde_1',
+            onEachFeature: pop_Negociosverde_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_oficios_barrio_verde_1_0(feature));
+                return L.circleMarker(latlng, style_Negociosverde_1_0(feature));
             },
         });
-        var cluster_oficios_barrio_verde_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_Negociosverde_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_oficios_barrio_verde_1.addLayer(layer_oficios_barrio_verde_1);
+        cluster_Negociosverde_1.addLayer(layer_Negociosverde_1);
 
-        bounds_group.addLayer(layer_oficios_barrio_verde_1);
-        cluster_oficios_barrio_verde_1.addTo(map);
-        function pop_oficios_amarillo_2(feature, layer) {
+        bounds_group.addLayer(layer_Negociosverde_1);
+        cluster_Negociosverde_1.addTo(map);
+        function pop_Negociosamarillo_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -307,9 +307,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_oficios_amarillo_2_0() {
+        function style_Negociosamarillo_2_0() {
             return {
-                pane: 'pane_oficios_amarillo_2',
+                pane: 'pane_Negociosamarillo_2',
                 radius: 8.4,
                 opacity: 1,
                 color: 'rgba(247,225,55,1.0)',
@@ -323,31 +323,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_oficios_amarillo_2');
-        map.getPane('pane_oficios_amarillo_2').style.zIndex = 402;
-        map.getPane('pane_oficios_amarillo_2').style['mix-blend-mode'] = 'normal';
-        var layer_oficios_amarillo_2 = new L.geoJson(json_oficios_amarillo_2, {
+        map.createPane('pane_Negociosamarillo_2');
+        map.getPane('pane_Negociosamarillo_2').style.zIndex = 402;
+        map.getPane('pane_Negociosamarillo_2').style['mix-blend-mode'] = 'normal';
+        var layer_Negociosamarillo_2 = new L.geoJson(json_Negociosamarillo_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_oficios_amarillo_2',
-            layerName: 'layer_oficios_amarillo_2',
-            pane: 'pane_oficios_amarillo_2',
-            onEachFeature: pop_oficios_amarillo_2,
+            dataVar: 'json_Negociosamarillo_2',
+            layerName: 'layer_Negociosamarillo_2',
+            pane: 'pane_Negociosamarillo_2',
+            onEachFeature: pop_Negociosamarillo_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_oficios_amarillo_2_0(feature));
+                return L.circleMarker(latlng, style_Negociosamarillo_2_0(feature));
             },
         });
-        var cluster_oficios_amarillo_2 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster_oficios_amarillo_2.addLayer(layer_oficios_amarillo_2);
-
-        bounds_group.addLayer(layer_oficios_amarillo_2);
-        cluster_oficios_amarillo_2.addTo(map);
-        function pop_oficios_rojo_3(feature, layer) {
+        bounds_group.addLayer(layer_Negociosamarillo_2);
+        map.addLayer(layer_Negociosamarillo_2);
+        function pop_Negociosrojo_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -375,6 +371,12 @@
                         <td>' + (feature.properties['Oficio'] !== null ? autolinker.link(String(feature.properties['Oficio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td class="visible-with-data" id="Persona" colspan="2"><strong>Persona</strong><br />' + (feature.properties['Persona'] !== null ? autolinker.link(String(feature.properties['Persona']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Alianza</strong><br />' + (feature.properties['Alianza'] !== null ? autolinker.link(String(feature.properties['Alianza']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Comentario</th>\
                         <td>' + (feature.properties['Comentario'] !== null ? autolinker.link(String(feature.properties['Comentario']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -386,9 +388,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_oficios_rojo_3_0() {
+        function style_Negociosrojo_3_0() {
             return {
-                pane: 'pane_oficios_rojo_3',
+                pane: 'pane_Negociosrojo_3',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(128,17,25,1.0)',
@@ -402,34 +404,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_oficios_rojo_3');
-        map.getPane('pane_oficios_rojo_3').style.zIndex = 403;
-        map.getPane('pane_oficios_rojo_3').style['mix-blend-mode'] = 'normal';
-        var layer_oficios_rojo_3 = new L.geoJson(json_oficios_rojo_3, {
+        map.createPane('pane_Negociosrojo_3');
+        map.getPane('pane_Negociosrojo_3').style.zIndex = 403;
+        map.getPane('pane_Negociosrojo_3').style['mix-blend-mode'] = 'normal';
+        var layer_Negociosrojo_3 = new L.geoJson(json_Negociosrojo_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_oficios_rojo_3',
-            layerName: 'layer_oficios_rojo_3',
-            pane: 'pane_oficios_rojo_3',
-            onEachFeature: pop_oficios_rojo_3,
+            dataVar: 'json_Negociosrojo_3',
+            layerName: 'layer_Negociosrojo_3',
+            pane: 'pane_Negociosrojo_3',
+            onEachFeature: pop_Negociosrojo_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_oficios_rojo_3_0(feature));
+                return L.circleMarker(latlng, style_Negociosrojo_3_0(feature));
             },
         });
-        var cluster_oficios_rojo_3 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster_oficios_rojo_3.addLayer(layer_oficios_rojo_3);
-
-        bounds_group.addLayer(layer_oficios_rojo_3);
-        cluster_oficios_rojo_3.addTo(map);
+        bounds_group.addLayer(layer_Negociosrojo_3);
+        map.addLayer(layer_Negociosrojo_3);
         var overlaysTree = [
-            {label: '<img src="legend/oficios_rojo_3.png" /> oficios_rojo', layer: cluster_oficios_rojo_3},
-            {label: '<img src="legend/oficios_amarillo_2.png" /> oficios_amarillo', layer: cluster_oficios_amarillo_2},
-            {label: '<img src="legend/oficios_barrio_verde_1.png" /> oficios_barrio_verde', layer: cluster_oficios_barrio_verde_1},
+            {label: '<img src="legend/Negociosrojo_3.png" /> Negocios rojo', layer: layer_Negociosrojo_3},
+            {label: '<img src="legend/Negociosamarillo_2.png" /> Negocios amarillo', layer: layer_Negociosamarillo_2},
+            {label: '<img src="legend/Negociosverde_1.png" /> Negocios verde', layer: cluster_Negociosverde_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -442,16 +440,6 @@
         });
         lay.addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: cluster_oficios_barrio_verde_1,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'Oficio'}));
-        if (typeof url === 'undefined') {
-            document.getElementsByClassName('search-button')[0].className += ' fa fa-binoculars';
-        } else {
-            document.getElementsByClassName('search-button')[1].className += ' fa fa-binoculars';
-        }
         </script>
     </body>
 </html>
